@@ -9,22 +9,28 @@ function cKey(...parts) { return parts.join("|"); }
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const ALBUMS = [
-  { id:"please",    year:1963, title:"Please Please Me",                       color:"#c0392b", tc:"#fff", songs:["I Saw Her Standing There","Misery","Anna (Go to Him)","Chains","Boys","Ask Me Why","Please Please Me","Love Me Do","P.S. I Love You","Baby It's You","Do You Want to Know a Secret","A Taste of Honey","There's a Place","Twist and Shout"] },
-  { id:"with",      year:1963, title:"With the Beatles",                       color:"#2a2a2a", tc:"#fff", songs:["It Won't Be Long","All I've Got to Do","All My Loving","Don't Bother Me","Little Child","Till There Was You","Please Mister Postman","Roll Over Beethoven","Hold Me Tight","You Really Got a Hold on Me","I Wanna Be Your Man","Devil in Her Heart","Not a Second Time","Money (That's What I Want)"] },
-  { id:"harddays",  year:1964, title:"A Hard Day's Night",                     color:"#d4820a", tc:"#fff", songs:["A Hard Day's Night","I Should Have Known Better","If I Fell","I'm Happy Just to Dance with You","And I Love Her","Tell Me Why","Can't Buy Me Love","Any Time at All","I'll Cry Instead","Things We Said Today","When I Get Home","You Can't Do That","I'll Be Back"] },
-  { id:"forsale",   year:1964, title:"Beatles for Sale",                       color:"#7a4e2a", tc:"#fff", songs:["No Reply","I'm a Loser","Baby's in Black","Rock and Roll Music","I'll Follow the Sun","Mr. Moonlight","Kansas City","Eight Days a Week","Words of Love","Honey Don't","Every Little Thing","I Don't Want to Spoil the Party","What You're Doing","Everybody's Trying to Be My Baby"] },
-  { id:"help",      year:1965, title:"Help!",                                  color:"#1a5fa8", tc:"#fff", songs:["Help!","The Night Before","You've Got to Hide Your Love Away","I Need You","Another Girl","You're Going to Lose That Girl","Ticket to Ride","Act Naturally","It's Only Love","You Like Me Too Much","Tell Me What You See","I've Just Seen a Face","Yesterday","Dizzy Miss Lizzy"] },
-  { id:"rubber",    year:1965, title:"Rubber Soul",                            color:"#a07020", tc:"#fff", songs:["Drive My Car","Norwegian Wood (This Bird Has Flown)","You Won't See Me","Nowhere Man","Think for Yourself","The Word","Michelle","What Goes On","Girl","I'm Looking Through You","In My Life","Wait","If I Needed Someone","Run for Your Life"] },
-  { id:"revolver",  year:1966, title:"Revolver",                               color:"#303030", tc:"#fff", songs:["Taxman","Eleanor Rigby","I'm Only Sleeping","Love You To","Here, There and Everywhere","Yellow Submarine","She Said She Said","Good Day Sunshine","And Your Bird Can Sing","For No One","Doctor Robert","I Want to Tell You","Got to Get You into My Life","Tomorrow Never Knows"] },
-  { id:"sgt",       year:1967, title:"Sgt. Pepper's Lonely Hearts Club Band", color:"#9a1e1e", tc:"#fff", songs:["Sgt. Pepper's Lonely Hearts Club Band","With a Little Help from My Friends","Lucy in the Sky with Diamonds","Getting Better","Fixing a Hole","She's Leaving Home","Being for the Benefit of Mr. Kite!","Within You Without You","When I'm Sixty-Four","Lovely Rita","Good Morning Good Morning","A Day in the Life"] },
-  { id:"mmtour",    year:1967, title:"Magical Mystery Tour",                   color:"#5a3090", tc:"#fff", songs:["Magical Mystery Tour","The Fool on the Hill","Flying","Blue Jay Way","Your Mother Should Know","I Am the Walrus","Hello, Goodbye","Strawberry Fields Forever","Penny Lane","Baby You're a Rich Man","All You Need Is Love"] },
-  { id:"white",     year:1968, title:"The White Album",                        color:"#dedad2", tc:"#1a1208", songs:["Back in the U.S.S.R.","Dear Prudence","Glass Onion","Ob-La-Di, Ob-La-Da","Wild Honey Pie","The Continuing Story of Bungalow Bill","While My Guitar Gently Weeps","Happiness Is a Warm Gun","Martha My Dear","I'm So Tired","Blackbird","Piggies","Rocky Raccoon","Don't Pass Me By","Why Don't We Do It in the Road?","I Will","Julia","Birthday","Yer Blues","Mother Nature's Son","Everybody's Got Something to Hide Except Me and My Monkey","Sexy Sadie","Helter Skelter","Long, Long, Long","Revolution 1","Honey Pie","Savoy Truffle","Cry Baby Cry","Revolution 9","Good Night"] },
-  { id:"yellow",    year:1969, title:"Yellow Submarine",                       color:"#b89000", tc:"#fff", songs:["Yellow Submarine","Only a Northern Song","All Together Now","Hey Bulldog","It's All Too Much","All You Need Is Love"] },
-  { id:"abbeyroad", year:1969, title:"Abbey Road",                             color:"#1e6e44", tc:"#fff", songs:["Come Together","Something","Maxwell's Silver Hammer","Oh! Darling","Octopus's Garden","I Want You (She's So Heavy)","Here Comes the Sun","Because","You Never Give Me Your Money","Sun King","Mean Mr. Mustard","Polythene Pam","She Came In Through the Bathroom Window","Golden Slumbers","Carry That Weight","The End","Her Majesty"] },
-  { id:"letitbe",   year:1970, title:"Let It Be",                              color:"#6e1212", tc:"#fff", songs:["Two of Us","Dig a Pony","Across the Universe","I Me Mine","Dig It","Let It Be","Maggie Mae","I've Got a Feeling","One After 909","The Long and Winding Road","For You Blue","Get Back"] },
+  { id:"please",    year:1963, releaseDate:"1963-03-22", title:"Please Please Me",                       color:"#c0392b", tc:"#fff", songs:["I Saw Her Standing There","Misery","Anna (Go to Him)","Chains","Boys","Ask Me Why","Please Please Me","Love Me Do","P.S. I Love You","Baby It's You","Do You Want to Know a Secret","A Taste of Honey","There's a Place","Twist and Shout"] },
+  { id:"with",      year:1963, releaseDate:"1963-11-22", title:"With the Beatles",                       color:"#2a2a2a", tc:"#fff", songs:["It Won't Be Long","All I've Got to Do","All My Loving","Don't Bother Me","Little Child","Till There Was You","Please Mister Postman","Roll Over Beethoven","Hold Me Tight","You Really Got a Hold on Me","I Wanna Be Your Man","Devil in Her Heart","Not a Second Time","Money (That's What I Want)"] },
+  { id:"harddays",  year:1964, releaseDate:"1964-07-10", title:"A Hard Day's Night",                     color:"#d4820a", tc:"#fff", songs:["A Hard Day's Night","I Should Have Known Better","If I Fell","I'm Happy Just to Dance with You","And I Love Her","Tell Me Why","Can't Buy Me Love","Any Time at All","I'll Cry Instead","Things We Said Today","When I Get Home","You Can't Do That","I'll Be Back"] },
+  { id:"forsale",   year:1964, releaseDate:"1964-12-04", title:"Beatles for Sale",                       color:"#7a4e2a", tc:"#fff", songs:["No Reply","I'm a Loser","Baby's in Black","Rock and Roll Music","I'll Follow the Sun","Mr. Moonlight","Kansas City","Eight Days a Week","Words of Love","Honey Don't","Every Little Thing","I Don't Want to Spoil the Party","What You're Doing","Everybody's Trying to Be My Baby"] },
+  { id:"help",      year:1965, releaseDate:"1965-08-06", title:"Help!",                                  color:"#1a5fa8", tc:"#fff", songs:["Help!","The Night Before","You've Got to Hide Your Love Away","I Need You","Another Girl","You're Going to Lose That Girl","Ticket to Ride","Act Naturally","It's Only Love","You Like Me Too Much","Tell Me What You See","I've Just Seen a Face","Yesterday","Dizzy Miss Lizzy"] },
+  { id:"rubber",    year:1965, releaseDate:"1965-12-03", title:"Rubber Soul",                            color:"#a07020", tc:"#fff", songs:["Drive My Car","Norwegian Wood (This Bird Has Flown)","You Won't See Me","Nowhere Man","Think for Yourself","The Word","Michelle","What Goes On","Girl","I'm Looking Through You","In My Life","Wait","If I Needed Someone","Run for Your Life"] },
+  { id:"revolver",  year:1966, releaseDate:"1966-08-05", title:"Revolver",                               color:"#303030", tc:"#fff", songs:["Taxman","Eleanor Rigby","I'm Only Sleeping","Love You To","Here, There and Everywhere","Yellow Submarine","She Said She Said","Good Day Sunshine","And Your Bird Can Sing","For No One","Doctor Robert","I Want to Tell You","Got to Get You into My Life","Tomorrow Never Knows"] },
+  { id:"sgt",       year:1967, releaseDate:"1967-06-01", title:"Sgt. Pepper's Lonely Hearts Club Band", color:"#9a1e1e", tc:"#fff", songs:["Sgt. Pepper's Lonely Hearts Club Band","With a Little Help from My Friends","Lucy in the Sky with Diamonds","Getting Better","Fixing a Hole","She's Leaving Home","Being for the Benefit of Mr. Kite!","Within You Without You","When I'm Sixty-Four","Lovely Rita","Good Morning Good Morning","A Day in the Life"] },
+  { id:"mmtour",    year:1967, releaseDate:"1967-11-27", title:"Magical Mystery Tour",                   color:"#5a3090", tc:"#fff", songs:["Magical Mystery Tour","The Fool on the Hill","Flying","Blue Jay Way","Your Mother Should Know","I Am the Walrus","Hello, Goodbye","Strawberry Fields Forever","Penny Lane","Baby You're a Rich Man","All You Need Is Love"] },
+  { id:"white",     year:1968, releaseDate:"1968-11-22", title:"The White Album",                        color:"#dedad2", tc:"#1a1208", songs:["Back in the U.S.S.R.","Dear Prudence","Glass Onion","Ob-La-Di, Ob-La-Da","Wild Honey Pie","The Continuing Story of Bungalow Bill","While My Guitar Gently Weeps","Happiness Is a Warm Gun","Martha My Dear","I'm So Tired","Blackbird","Piggies","Rocky Raccoon","Don't Pass Me By","Why Don't We Do It in the Road?","I Will","Julia","Birthday","Yer Blues","Mother Nature's Son","Everybody's Got Something to Hide Except Me and My Monkey","Sexy Sadie","Helter Skelter","Long, Long, Long","Revolution 1","Honey Pie","Savoy Truffle","Cry Baby Cry","Revolution 9","Good Night"] },
+  { id:"yellow",    year:1969, releaseDate:"1969-01-17", title:"Yellow Submarine",                       color:"#b89000", tc:"#fff", songs:["Yellow Submarine","Only a Northern Song","All Together Now","Hey Bulldog","It's All Too Much","All You Need Is Love"] },
+  { id:"abbeyroad", year:1969, releaseDate:"1969-09-26", title:"Abbey Road",                             color:"#1e6e44", tc:"#fff", songs:["Come Together","Something","Maxwell's Silver Hammer","Oh! Darling","Octopus's Garden","I Want You (She's So Heavy)","Here Comes the Sun","Because","You Never Give Me Your Money","Sun King","Mean Mr. Mustard","Polythene Pam","She Came In Through the Bathroom Window","Golden Slumbers","Carry That Weight","The End","Her Majesty"] },
+  { id:"letitbe",   year:1970, releaseDate:"1970-05-08", title:"Let It Be",                              color:"#6e1212", tc:"#fff", songs:["Two of Us","Dig a Pony","Across the Universe","I Me Mine","Dig It","Let It Be","Maggie Mae","I've Got a Feeling","One After 909","The Long and Winding Road","For You Blue","Get Back"] },
 ];
 
 const ALL_SONGS = ALBUMS.flatMap(a => a.songs.map(s => ({ song:s, album:a })));
+
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function fmtDate(d) {
+  const [y, m, day] = d.split("-");
+  return `${parseInt(day)} ${MONTHS[parseInt(m) - 1]} ${y}`;
+}
 
 const MEMBERS = [
   { id:"john",   name:"John Lennon",     color:"#c0392b", emoji:"🎸" },
@@ -553,6 +559,7 @@ body { background:var(--cream); color:var(--ink); font-family:'Nunito',sans-seri
 .alb-yr { display:inline-block; background:rgba(0,0,0,0.32); color:#fff; font-family:'Bebas Neue',sans-serif; font-size:12px; letter-spacing:1px; padding:1px 8px; border-radius:20px; margin-bottom:8px; position:relative; z-index:1; }
 .alb-name { font-weight:900; font-size:12px; line-height:1.3; position:relative; z-index:1; }
 .alb-cnt { font-size:10px; margin-top:4px; position:relative; z-index:1; opacity:0.75; }
+.alb-date { font-size:9px; margin-top:3px; position:relative; z-index:1; opacity:0.6; letter-spacing:0.5px; font-weight:700; }
 
 /* Search */
 .sw { padding:12px 14px 6px; position:sticky; top:64px; z-index:40; background:var(--cream); border-bottom:2px solid rgba(0,0,0,0.08); }
@@ -889,6 +896,7 @@ export default function App() {
               <div className="alb-yr">{a.year}</div>
               <div className="alb-name" style={{ color: a.tc }}>{a.title}</div>
               <div className="alb-cnt" style={{ color: a.tc }}>{a.songs.length} tracks</div>
+              <div className="alb-date" style={{ color: a.tc }}>{fmtDate(a.releaseDate)}</div>
             </div>
           ))}
         </div>
@@ -897,7 +905,10 @@ export default function App() {
       {/* Songs */}
       {page === "songs" && album && <div className="pg">
         <div className="br" onClick={() => setPage("albums")}><span className="bi">←</span><span className="bl">Discography</span></div>
-        <div className="ahero"><div className="ahero-t">{album.title}</div><div className="ahero-y">{album.year} · {album.songs.length} tracks</div></div>
+        <div className="ahero">
+          <div className="ahero-t">{album.title}</div>
+          <div className="ahero-y">{fmtDate(album.releaseDate)} · {album.songs.length} tracks</div>
+        </div>
         <div className="divider" />
         {album.songs.map((s, i) => <SongRow key={i} s={s} a={album} idx={i} />)}
       </div>}
