@@ -95,6 +95,7 @@ const CHORD_DATA = {
       ]},
     ]
   },
+
   "Misery": {
     key: "C",
     sections: [
@@ -117,7 +118,294 @@ const CHORD_DATA = {
       ]},
     ]
   },
+
+  "Anna (Go to Him)": {
+    key: "D",
+    sections: [
+      { name: "Verse", lines: [
+        { chords: ["D","Bm","D","Bm"], lyric: "Anna you come and ask me girl to set you free girl" },
+        { chords: ["D","Bm","Em","A7"], lyric: "You say he loves you more than me so I will set you free" },
+        { chords: ["D","Bm","D","Bm"], lyric: "Go with him (Anna) go with him" },
+      ]},
+      { name: "Middle", lines: [
+        { chords: ["G","","",""], lyric: "All of my life I've been searching for a girl" },
+        { chords: ["","D","",""], lyric: "Who'll love me like I love her" },
+        { chords: ["G","","Gm",""], lyric: "But every girl I've ever had breaks my heart and leave me sad" },
+        { chords: ["E7","","A7",""], lyric: "What am I what am I supposed to do oh" },
+      ]},
+      { name: "Ending", lines: [
+        { chords: ["Bm","D","Bm",""], lyric: "(Anna) go with him (Anna)" },
+        { chords: ["D","Bm","D",""], lyric: "You can go with him girl (Anna) go with him" },
+      ]},
+    ]
+  },
+
+  "Chains": {
+    key: "A",
+    sections: [
+      { name: "Verse", lines: [
+        { chords: ["A","","","D9"], lyric: "Chains my baby's got me locked up in chains" },
+        { chords: ["A","","E9",""], lyric: "That you can see woh these chains of love" },
+        { chords: ["D9","A","E",""], lyric: "Got a hold on me yeah" },
+      ]},
+      { name: "Bridge", lines: [
+        { chords: ["D9","","A","A7"], lyric: "Please believe me when I tell you your lips are sweet" },
+        { chords: ["D9","","E",""], lyric: "I'd like to kiss them but I can't break away from all of these" },
+      ]},
+      { name: "Outro", lines: [
+        { chords: ["A","","",""], lyric: "Chains chains of love chains of love" },
+        { chords: ["D","Dm","A",""], lyric: "Chains of love" },
+      ]},
+    ]
+  },
+
+  "Boys": {
+    key: "A",
+    sections: [
+      { name: "Verse", lines: [
+        { chords: ["A","","",""], lyric: "I've been told when a boy kiss a girl" },
+        { chords: ["","D","",""], lyric: "Hey hey bop bop em bop em shoo bop" },
+        { chords: ["","A","",""], lyric: "Hey hey bop bop em bop em shoo bop" },
+        { chords: ["E","","D",""], lyric: "Hey hey hey hey hey" },
+        { chords: ["","A","E7",""], lyric: "Yes they say you do" },
+      ]},
+      { name: "Chorus", lines: [
+        { chords: ["E7","","A",""], lyric: "Well I talk about boys yeah yeah" },
+        { chords: ["","D","","A"], lyric: "Well I talk about boys now yeah boys" },
+        { chords: ["","E7","",""], lyric: "Well I talk about boys now" },
+        { chords: ["D","","A","E7"], lyric: "What a bundle of joy" },
+      ]},
+    ]
+  },
+
+  "Ask Me Why": {
+    key: "E",
+    sections: [
+      { name: "Verse", lines: [
+        { chords: ["G#m","F#m","","E"], lyric: "I love you cause you tell me things I want to know" },
+        { chords: ["G#m","F#m","","E"], lyric: "And it's true that it really only goes to show" },
+        { chords: ["C","Am","F#","B"], lyric: "That I I I I should never never never be blue" },
+        { chords: ["G#m","F#m","","E"], lyric: "Now you're mine my happiness still makes me cry" },
+      ]},
+      { name: "Chorus", lines: [
+        { chords: ["G#m","","A",""], lyric: "Ask me why I'll say I love you" },
+        { chords: ["G#m","","A",""], lyric: "And I'm always thinking of you" },
+      ]},
+      { name: "Bridge", lines: [
+        { chords: ["E+5","A","B","E"], lyric: "I can't believe it's happened to me" },
+        { chords: ["E+5","A","B","E"], lyric: "I can't conceive of any more misery" },
+      ]},
+    ]
+  },
+
+  "Please Please Me": {
+    key: "E",
+    sections: [
+      { name: "Intro", lines: [
+        { chords: ["E","","",""], lyric: "♪" },
+      ]},
+      { name: "Verse", lines: [
+        { chords: ["E","A","E","G"], lyric: "Last night I said these words to my girl" },
+        { chords: ["A*","B","E","A"], lyric: "" },
+        { chords: ["E","","A","E"], lyric: "I know you never even try girl" },
+      ]},
+      { name: "Chorus", lines: [
+        { chords: ["A","","F#m",""], lyric: "Come on come on come on come on" },
+        { chords: ["C#m","","A*",""], lyric: "Come on come on come on" },
+        { chords: ["E","","A",""], lyric: "Please please me whoa yeah" },
+        { chords: ["B*","","E",""], lyric: "Like I please you" },
+      ]},
+      { name: "Bridge", lines: [
+        { chords: ["B*","","E",""], lyric: "But you know there's always rain in my heart" },
+        { chords: ["A","","",""], lyric: "I do all the pleasing with you" },
+        { chords: ["B*","","E",""], lyric: "It's so hard to reason with you" },
+        { chords: ["A","B*","E",""], lyric: "Oh yeah why do you make me blue" },
+      ]},
+      { name: "Outro", lines: [
+        { chords: ["E","","A",""], lyric: "Please please me whoa yeah" },
+        { chords: ["B*","","",""], lyric: "Like I please you" },
+        { chords: ["E","","A",""], lyric: "Please please me whoa yeah" },
+        { chords: ["B*","","",""], lyric: "Like I please you" },
+        { chords: ["E","","A",""], lyric: "Please please me whoa yeah" },
+        { chords: ["B*","E","G","C"], lyric: "Like I please you" },
+        { chords: ["B*","E","",""], lyric: "" },
+      ]},
+    ]
+  },
+
+  "Love Me Do": {
+    key: "G",
+    sections: [
+      { name: "Intro", lines: [
+        { chords: ["G","","C",""], lyric: "♪" },
+      ]},
+      { name: "Verse", lines: [
+        { chords: ["G","","C",""], lyric: "Love love me do you know I love you" },
+        { chords: ["G","","C",""], lyric: "I'll always be true" },
+        { chords: ["C","C/G","","G"], lyric: "So pleeeease love me do" },
+      ]},
+      { name: "Bridge", lines: [
+        { chords: ["D","C","F","G"], lyric: "Someone to love somebody new" },
+        { chords: ["D","C","F","G"], lyric: "Someone to love someone like you" },
+      ]},
+      { name: "Outro", lines: [
+        { chords: ["G","","C",""], lyric: "Love love me do you know I love you" },
+        { chords: ["G","","C",""], lyric: "I'll always be true" },
+        { chords: ["C","C/G","","G"], lyric: "So pleeeease love me do" },
+        { chords: ["G","C","G","C"], lyric: "Love me do yeah love me do yeah love me do" },
+      ]},
+    ]
+  },
+
+  "P.S. I Love You": {
+    key: "D",
+    sections: [
+      { name: "Verse", lines: [
+        { chords: ["G","Gdim","D",""], lyric: "As I write this letter" },
+        { chords: ["G","Gdim","D",""], lyric: "Send my love to you" },
+        { chords: ["G","Gdim","D",""], lyric: "Remember that I'll always" },
+        { chords: ["D","A","D",""], lyric: "Be in love with you" },
+      ]},
+      { name: "Bridge", lines: [
+        { chords: ["D","","Em",""], lyric: "Treasure these few words" },
+        { chords: ["","D","",""], lyric: "Till we're together" },
+        { chords: ["A","","Bm",""], lyric: "Keep all my love forever" },
+        { chords: ["A","","Bb",""], lyric: "P.S. I love you" },
+        { chords: ["C","D","",""], lyric: "You you you" },
+      ]},
+      { name: "Outro", lines: [
+        { chords: ["D","","Em","D"], lyric: "I'll be comin' home again to you love" },
+        { chords: ["A","","Bm",""], lyric: "Until the day I do love" },
+        { chords: ["A","","Bb",""], lyric: "P.S. I love you" },
+        { chords: ["C","D","",""], lyric: "You you you" },
+        { chords: ["Bb","C","D",""], lyric: "You you you" },
+        { chords: ["Bb","C","D",""], lyric: "I love you" },
+      ]},
+    ]
+  },
+
+  "Baby It's You": {
+    key: "G",
+    sections: [
+      { name: "Verse", lines: [
+        { chords: ["G","","Em",""], lyric: "Sha la la la la la la" },
+        { chords: ["C","","",""], lyric: "It's not the way you smile that touched my heart" },
+        { chords: ["","G","",""], lyric: "It's not the way you kiss that tears apart" },
+        { chords: ["","Em","",""], lyric: "But how many many many nights go by" },
+        { chords: ["Am","","G","Em"], lyric: "I sit alone at home and I cry over you what can I do" },
+        { chords: ["C","D","G","Em"], lyric: "Can't help myself cause baby it's you" },
+        { chords: ["G","","",""], lyric: "Baby it's you" },
+      ]},
+      { name: "Bridge", lines: [
+        { chords: ["C","","G",""], lyric: "You should hear what they say about you cheat cheat" },
+        { chords: ["C","","G",""], lyric: "They say you never never ever been true" },
+        { chords: ["","Em","",""], lyric: "Wo ho it doesn't matter what they say" },
+        { chords: ["Am","","",""], lyric: "I know I'm gonna love you any old way" },
+        { chords: ["G","","Em",""], lyric: "What can I do then it's true" },
+        { chords: ["C","","D",""], lyric: "Don't want nobody nobody" },
+        { chords: ["G","Em","G",""], lyric: "Cause baby it's you baby it's you" },
+      ]},
+    ]
+  },
+
+  "Do You Want to Know a Secret": {
+    key: "E",
+    sections: [
+      { name: "Intro", lines: [
+        { chords: ["Em","","Am","Em"], lyric: "You'll never know how much I really love you" },
+        { chords: ["G","","F","B7"], lyric: "You'll never know how much I really care" },
+      ]},
+      { name: "Verse", lines: [
+        { chords: ["E","G#m","Gm","F#m"], lyric: "Listen" },
+        { chords: ["B7","E","G#m","Gm"], lyric: "Do you want to know a secret" },
+        { chords: ["F#m","B7","E","G#m"], lyric: "Do you promise not to tell" },
+        { chords: ["Gm","F#m","F",""], lyric: "Whoa oh oh" },
+      ]},
+      { name: "Bridge", lines: [
+        { chords: ["E","G#m","Gm","F#m"], lyric: "Closer" },
+        { chords: ["B7","E","G#m","Gm"], lyric: "Let me whisper in your ear" },
+        { chords: ["F#m","B7","A","B7"], lyric: "Say the words you long to hear" },
+        { chords: ["C#m","F#m","","B7"], lyric: "I'm in love with you oh" },
+      ]},
+      { name: "Outro", lines: [
+        { chords: ["A","F#m","C#m","Bm"], lyric: "Nobody knows just we two" },
+        { chords: ["F#m","B7","",""], lyric: "O" },
+      ]},
+    ]
+  },
+
+  "A Taste of Honey": {
+    key: "F#m",
+    sections: [
+      { name: "Intro", lines: [
+        { chords: ["F#m","","A","E"], lyric: "A taste of honey tasting much sweeter than wine" },
+      ]},
+      { name: "Verse", lines: [
+        { chords: ["F#m","F5+","A","B"], lyric: "I dream of your first kiss and then" },
+        { chords: ["F#m","F5+","A","B"], lyric: "I feel upon my lips again" },
+        { chords: ["F#m","","A","E"], lyric: "A taste of honey tasting much sweeter than wine" },
+        { chords: ["F#m","Bm","F#m","Bm"], lyric: "Ta do n doo ta do n doo" },
+      ]},
+      { name: "Chorus", lines: [
+        { chords: ["A","B","F#m","B"], lyric: "Oh I will return yes I will return" },
+        { chords: ["A","","E","F#m"], lyric: "I'll come back for the honey and you" },
+      ]},
+      { name: "Outro", lines: [
+        { chords: ["B","","F#m",""], lyric: "That taste of honey tasting much sweeter than wine" },
+        { chords: ["F#m","Bm","F#m","Bm"], lyric: "Ta do n doo ta do n doo" },
+        { chords: ["Bm","F#m","Bm","F#m"], lyric: "" },
+      ]},
+    ]
+  },
+
+  "There's a Place": {
+    key: "E",
+    sections: [
+      { name: "Verse", lines: [
+        { chords: ["E","","A","E"], lyric: "There is a place where I can go" },
+        { chords: ["A","E","C#m","B7"], lyric: "When I feel low when I feel blue" },
+        { chords: ["A","G#m7","A",""], lyric: "And it's my mind and there's no time" },
+        { chords: ["B7","C#m7","",""], lyric: "When I'm alone" },
+        { chords: ["E","A","","E"], lyric: "I think of you and things you do" },
+        { chords: ["A","E","C#m7","B7"], lyric: "Go round my head the things you said" },
+        { chords: ["C#m7","A","B7","E"], lyric: "Like I love only you" },
+      ]},
+      { name: "Chorus", lines: [
+        { chords: ["C#m7","","F#7",""], lyric: "In my mind there's no sorrow" },
+        { chords: ["E","","G#m7",""], lyric: "Don't you know that it's so" },
+        { chords: ["C#m7","","F#7",""], lyric: "There'll be no sad tomorrow" },
+        { chords: ["E","G#m7","C#m7","G#m7"], lyric: "Don't you know that it's so" },
+      ]},
+    ]
+  },
+
+  "Twist and Shout": {
+    key: "A",
+    sections: [
+      { name: "Verse", lines: [
+        { chords: ["A7","D","G","A"], lyric: "Well shake it up baby now twist and shout" },
+        { chords: ["A7","D","G","A"], lyric: "C'mon c'mon c'mon c'mon baby now" },
+        { chords: ["A7","D","G","A"], lyric: "C'mon and work it on out" },
+      ]},
+      { name: "Chorus", lines: [
+        { chords: ["A7","D","G","A"], lyric: "Well work it on out you know you look so good" },
+        { chords: ["A7","D","G","A"], lyric: "You know you got me goin' now" },
+        { chords: ["A7","D","G","A","A7"], lyric: "Just like I knew you would" },
+      ]},
+      { name: "Bridge", lines: [
+        { chords: ["A7","D","G","A"], lyric: "You know you twist it little girl" },
+        { chords: ["A7","D","G","A"], lyric: "You know you twist so fine" },
+        { chords: ["A7","D","G","A"], lyric: "C'mon and twist a little closer now" },
+        { chords: ["A7","D","G","A","A7"], lyric: "And let me know that you're mine" },
+      ]},
+      { name: "Outro", lines: [
+        { chords: ["A7","D","G","A"], lyric: "Well shake it shake it shake it baby now" },
+        { chords: ["A","G","G","G"], lyric: "Ahh ahh ahh ahh" },
+      ]},
+    ]
+  },
 };
+
 async function getChords(song, album) {
   if (CHORD_DATA[song]) return { data: CHORD_DATA[song], fromCache: false };
   const k = cKey("chords", song, album);
