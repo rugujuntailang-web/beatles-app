@@ -56,7 +56,7 @@ async function callClaude(prompt, maxTokens = 1500, useWebSearch = false) {
   }
   const res = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json","anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true", "x-api-key": import.meta.env.VITE_ANTHROPIC_KEY },
     body: JSON.stringify(body),
   });
   const data = await res.json();
