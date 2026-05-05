@@ -119,6 +119,7 @@ const CHORD_DATA = {
   },
 };
 async function getChords(song, album) {
+  if (CHORD_DATA[song]) return { data: CHORD_DATA[song], fromCache: false };
   const k = cKey("chords", song, album);
   const cached = cGet(k);
   if (cached) return { data: cached, fromCache: true };
