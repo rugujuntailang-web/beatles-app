@@ -54,9 +54,9 @@ async function callClaude(prompt, maxTokens = 1500, useWebSearch = false) {
   if (useWebSearch) {
     body.tools = [{ type: "web_search_20250305", name: "web_search" }];
   }
-  const res = await fetch("https://api.anthropic.com/v1/messages", {
+  const res = await fetch("/api/claude", {
     method: "POST",
-    headers: { "Content-Type": "application/json","anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true", "x-api-key": import.meta.env.VITE_ANTHROPIC_KEY },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
   const data = await res.json();
