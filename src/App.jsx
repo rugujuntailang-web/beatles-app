@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 
 // ── In-memory cache (works in all environments) ───────────────────────────────
 const CACHE = new Map();
+async function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 function cGet(k)    { return CACHE.get(k) || null; }
 function cSet(k, v) { CACHE.set(k, v); }
 function cKey(...parts) { return parts.join("|"); }
@@ -47,7 +48,7 @@ const ERAS = [
 // ── Claude API with web_search for accuracy ───────────────────────────────────
 async function callClaude(prompt, maxTokens = 1500, useWebSearch = false) {
   const body = {
-    model: "claude-sonnet-4-5",
+    model: "claude-sonnet-4-20250514",
     max_tokens: maxTokens,
     messages: [{ role: "user", content: prompt }],
   };
