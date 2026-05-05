@@ -478,8 +478,12 @@ export default function App() {
     setPage("song");
     setLc(true);
     try { const { data } = await getChords(s, a.title); setChords(data); }
-    catch { setEc("コードの取得に失敗しました"); }
-    setLc(false);
+    catch {
+  await sleep(3000);
+  try { const { data } = await getChords(s, a.title); setChords(data); }
+  catch { setEc("コードの取得に失敗しました"); }
+}
+setLc(false);
   }
 
   async function doTab(instr) {
