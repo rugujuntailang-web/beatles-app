@@ -47,6 +47,32 @@ const ERAS = [
   { id:"late",       label:"Let It Be Era", range:"1969–1970" },
 ];
 
+// UK公式シングル (Parlophone)
+const SINGLES = [
+  { num:1,  aside:"Love Me Do",                         bside:"P.S. I Love You",                    date:"1962-10-05" },
+  { num:2,  aside:"Please Please Me",                    bside:"Ask Me Why",                         date:"1963-01-11" },
+  { num:3,  aside:"From Me to You",                      bside:"Thank You Girl",                     date:"1963-04-11" },
+  { num:4,  aside:"She Loves You",                       bside:"I'll Get You",                       date:"1963-08-23" },
+  { num:5,  aside:"I Want to Hold Your Hand",            bside:"This Boy",                           date:"1963-11-29" },
+  { num:6,  aside:"Can't Buy Me Love",                   bside:"You Can't Do That",                  date:"1964-03-20" },
+  { num:7,  aside:"A Hard Day's Night",                  bside:"Things We Said Today",               date:"1964-07-10" },
+  { num:8,  aside:"I Feel Fine",                         bside:"She's a Woman",                      date:"1964-11-27" },
+  { num:9,  aside:"Ticket to Ride",                      bside:"Yes It Is",                          date:"1965-04-09" },
+  { num:10, aside:"Help!",                               bside:"I'm Down",                           date:"1965-07-23" },
+  { num:11, aside:"We Can Work It Out",                  bside:"Day Tripper",                        date:"1965-12-03" },
+  { num:12, aside:"Paperback Writer",                    bside:"Rain",                               date:"1966-06-10" },
+  { num:13, aside:"Yellow Submarine",                    bside:"Eleanor Rigby",                      date:"1966-08-05" },
+  { num:14, aside:"Strawberry Fields Forever",           bside:"Penny Lane",                         date:"1967-02-17" },
+  { num:15, aside:"All You Need Is Love",                bside:"Baby You're a Rich Man",             date:"1967-07-07" },
+  { num:16, aside:"Hello Goodbye",                       bside:"I Am the Walrus",                    date:"1967-11-24" },
+  { num:17, aside:"Lady Madonna",                        bside:"The Inner Light",                    date:"1968-03-15" },
+  { num:18, aside:"Hey Jude",                            bside:"Revolution",                         date:"1968-08-30" },
+  { num:19, aside:"Get Back",                            bside:"Don't Let Me Down",                  date:"1969-04-11" },
+  { num:20, aside:"The Ballad of John and Yoko",         bside:"Old Brown Shoe",                     date:"1969-05-30" },
+  { num:21, aside:"Something",                           bside:"Come Together",                      date:"1969-10-31" },
+  { num:22, aside:"Let It Be",                           bside:"You Know My Name (Look Up the Number)", date:"1970-03-06" },
+];
+
 // ── Favourites (in-memory) ────────────────────────────────────────────────────
 // Note: persisting favs requires localStorage which isn't available here.
 // For a standalone HTML version, favs persist across sessions.
@@ -412,6 +438,271 @@ const CHORD_DATA = {
   },
 };
 
+// ChordPro形式: "[CHORD]word" で各単語の真上にコードを配置
+const CHORD_LINES = {
+  "I Saw Her Standing There": { key:"E", sections:[
+    { name:"Verse", lines:[
+      "[E7]Well she was just [A7]seventeen [E7]and you know what I mean",
+      "And the way she looked was way [B7]beyond compare",
+      "[E]So [E7]how could I [A7]dance with [C7]another oh",
+      "[E7]When I [B7]saw her [E7]standing there",
+    ]},
+    { name:"Bridge", lines:[
+      "[A7]Well we danced [E7]through the night",
+      "[A7]And we held [E7]each other tight",
+      "And before too long I fell [B7]in love with her",
+      "[E]Now I'll [E7]never dance [A7]with another",
+      "[C7]Oh [E7]since I [B7]saw her [E7]standing there",
+    ]},
+    { name:"Outro", lines:[
+      "[A7]Well my heart went boom when I crossed that room",
+      "And I [B7]held her [A7]hand in mine",
+      "[E7]Since I [B7]saw her [E7]standing there",
+    ]},
+  ]},
+  "Misery": { key:"C", sections:[
+    { name:"Verse", lines:[
+      "[F]The world is [G]treating me bad",
+      "[C]Misery [Am]yeah [G]oh",
+      "[C]I'm the [F]kind of guy",
+      "[C]Who never [F]used to cry",
+      "[F]The world is [G]treating me bad",
+      "[C]Misery [Am]oh!",
+    ]},
+    { name:"Bridge", lines:[
+      "[Am]I'll remember all the [C]little things we've done",
+      "[Am]Can't she see she'll [G]always be the only one",
+    ]},
+    { name:"Outro", lines:[
+      "[C]Without her [Am]I will be in misery",
+      "[C]In misery [Am](oh oh oh)",
+      "[C]Misery",
+    ]},
+  ]},
+  "Anna (Go to Him)": { key:"D", sections:[
+    { name:"Verse", lines:[
+      "[D]Anna you [Bm]come and ask [D]me girl to [Bm]set you free girl",
+      "[D]You say he [Bm]loves you more [Em]than me so I will [A7]set you free",
+      "[D]Go with [Bm]him ([D]Anna) [Bm]go with him",
+    ]},
+    { name:"Middle", lines:[
+      "[G]All of my life I've been searching for a girl",
+      "[D]Who'll love me like I love her",
+      "[G]But every girl I've ever had [Gm]breaks my heart and leave me sad",
+      "[E7]What am I what am I [A7]supposed to do oh",
+    ]},
+    { name:"Ending", lines:[
+      "[Bm](Anna) [D]go with him [Bm](Anna)",
+      "[D]You can [Bm]go with him girl ([D]Anna) go with him",
+    ]},
+  ]},
+  "Chains": { key:"A", sections:[
+    { name:"Verse", lines:[
+      "[A]Chains my baby's got me [D9]locked up in chains",
+      "[A]That you can see woh these [E9]chains of love",
+      "[D9]Got a [A]hold on [E]me yeah",
+    ]},
+    { name:"Bridge", lines:[
+      "[D9]Please believe me when [A]I tell you your [A7]lips are sweet",
+      "[D9]I'd like to kiss them but I [E]can't break away from all of these",
+    ]},
+    { name:"Outro", lines:[
+      "[A]Chains chains of love chains of love",
+      "[D]Chains [Dm]of [A]love",
+    ]},
+  ]},
+  "Boys": { key:"A", sections:[
+    { name:"Verse", lines:[
+      "[A]I've been told when a boy kiss a girl",
+      "[D]Hey hey bop bop em bop em shoo bop",
+      "[A]Hey hey bop bop em bop em shoo bop",
+      "[E]Hey hey [D]hey hey hey",
+      "[A]Yes they [E7]say you do",
+    ]},
+    { name:"Chorus", lines:[
+      "[E7]Well I talk [A]about boys yeah yeah",
+      "[D]Well I talk about boys now yeah [A]boys",
+      "[E7]Well I talk about boys now",
+      "[D]What a [A]bundle of [E7]joy",
+    ]},
+  ]},
+  "Ask Me Why": { key:"E", sections:[
+    { name:"Verse", lines:[
+      "[G#m]I love you cause [F#m]you tell me things [E]I want to know",
+      "[G#m]And it's true that [F#m]it really only [E]goes to show",
+      "[C]That I I I I [Am]should never [F#]never never [B]be blue",
+      "[G#m]Now you're mine [F#m]my happiness [E]still makes me cry",
+    ]},
+    { name:"Chorus", lines:[
+      "[G#m]Ask me why [A]I'll say I love you",
+      "[G#m]And I'm always [A]thinking of you",
+    ]},
+    { name:"Bridge", lines:[
+      "[E+5]I can't [A]believe [B]it's happened [E]to me",
+      "[E+5]I can't [A]conceive of [B]any more [E]misery",
+    ]},
+  ]},
+  "Please Please Me": { key:"E", sections:[
+    { name:"Intro", lines:["[E]♪"]},
+    { name:"Verse", lines:[
+      "[E]Last night I [A]said these [E]words to my [G]girl",
+      "[E]I know you [A]never even [E]try girl",
+    ]},
+    { name:"Chorus", lines:[
+      "[A]Come on come on [F#m]come on come on",
+      "[C#m]Come on [A]come on come on",
+      "[E]Please please [A]me whoa yeah",
+      "[B]Like I please you",
+    ]},
+    { name:"Bridge", lines:[
+      "[B]But you know there's [E]always rain in my heart",
+      "[A]I do all the pleasing with you",
+      "[B]It's so hard [E]to reason with you",
+      "[A]Oh yeah why [B]do you make [E]me blue",
+    ]},
+    { name:"Outro", lines:[
+      "[E]Please please [A]me whoa yeah",
+      "[B]Like I please you",
+    ]},
+  ]},
+  "Love Me Do": { key:"G", sections:[
+    { name:"Intro", lines:["[G]♪ [C]♪"]},
+    { name:"Verse", lines:[
+      "[G]Love love me do [C]you know I love you",
+      "[G]I'll always [C]be true",
+      "[C]So pleeeease [C/G]love [G]me do",
+    ]},
+    { name:"Bridge", lines:[
+      "[D]Someone to [C]love [F]somebody [G]new",
+      "[D]Someone to [C]love [F]someone like [G]you",
+    ]},
+    { name:"Outro", lines:[
+      "[G]Love love me do [C]you know I love you",
+      "[G]I'll always [C]be true",
+      "[C]So pleeeease [C/G]love [G]me do",
+      "[G]Love me do [C]yeah love me do",
+    ]},
+  ]},
+  "P.S. I Love You": { key:"D", sections:[
+    { name:"Verse", lines:[
+      "[G]As I [Gdim]write this [D]letter",
+      "[G]Send my [Gdim]love to [D]you",
+      "[G]Remember that [Gdim]I'll [D]always",
+      "[D]Be in [A]love with [D]you",
+    ]},
+    { name:"Bridge", lines:[
+      "[D]Treasure [Em]these few words",
+      "[D]Till we're together",
+      "[A]Keep all my [Bm]love forever",
+      "[A]P.S. I [Bb]love you",
+      "[C]You [D]you you",
+    ]},
+    { name:"Outro", lines:[
+      "[D]I'll be comin' home again [Em]to you love",
+      "[A]Until the day [Bm]I do love",
+      "[A]P.S. I [Bb]love you",
+      "[C]You [D]you [Bb]you [C]you [D]",
+    ]},
+  ]},
+  "Baby It's You": { key:"G", sections:[
+    { name:"Verse", lines:[
+      "[G]Sha la la [Em]la la la la",
+      "[C]It's not the way you smile that touched my heart",
+      "[G]It's not the way you kiss that tears apart",
+      "[Em]But how many many many nights go by",
+      "[Am]I sit alone at home [G]and I cry over you [Em]what can I do",
+      "[C]Can't help [D]myself cause [G]baby it's [Em]you",
+      "[G]Baby it's you",
+    ]},
+    { name:"Bridge", lines:[
+      "[C]You should hear what they say [G]about you cheat cheat",
+      "[C]They say you never [G]never ever been true",
+      "[Em]Wo ho it doesn't matter what they say",
+      "[Am]I know I'm gonna love you any old way",
+      "[G]What can I [Em]do then it's true",
+      "[C]Don't want nobody [D]nobody",
+      "[G]Cause baby [Em]it's you [G]baby it's you",
+    ]},
+  ]},
+  "Do You Want to Know a Secret": { key:"E", sections:[
+    { name:"Intro", lines:[
+      "[Em]You'll never know [Am]how much I really [Em]love you",
+      "[G]You'll never know [F]how much I really [B7]care",
+    ]},
+    { name:"Verse", lines:[
+      "[B7]Do you want to [E]know a [G#m]secret [Gm]...",
+      "[F#m]Do you promise [B7]not to [E]tell [G#m]...",
+      "[Gm]Whoa [F#m]oh [F]oh",
+    ]},
+    { name:"Bridge", lines:[
+      "[B7]Let me [E]whisper in [G#m]your ear [Gm]...",
+      "[F#m]Say the words [B7]you long [A]to [B7]hear",
+      "[C#m]I'm in [F#m]love with [B7]you oh",
+    ]},
+    { name:"Outro", lines:[
+      "[A]Nobody knows [F#m]just [C#m]we [Bm]two",
+    ]},
+  ]},
+  "A Taste of Honey": { key:"F#m", sections:[
+    { name:"Intro", lines:[
+      "[F#m]A taste of [A]honey tasting [E]much sweeter than wine",
+    ]},
+    { name:"Verse", lines:[
+      "[F#m]I dream of [F5+]your first [A]kiss and [B]then",
+      "[F#m]I feel upon [F5+]my lips [A]again",
+      "[F#m]A taste of [A]honey tasting [E]much sweeter than wine",
+      "[F#m]Ta do n [Bm]doo [F#m]ta do n [Bm]doo",
+    ]},
+    { name:"Chorus", lines:[
+      "[A]Oh I will [B]return [F#m]yes I will [B]return",
+      "[A]I'll come back [E]for the honey [F#m]and you",
+    ]},
+    { name:"Outro", lines:[
+      "[B]That taste of [F#m]honey tasting much sweeter than wine",
+      "[F#m]Ta do n [Bm]doo [F#m]ta do n [Bm]doo",
+    ]},
+  ]},
+  "There's a Place": { key:"E", sections:[
+    { name:"Verse", lines:[
+      "[E]There is a [A]place where [E]I can go",
+      "[A]When I feel [E]low when [C#m]I feel [B7]blue",
+      "[A]And it's my [G#m7]mind and [A]there's no time",
+      "[B7]When I'm [C#m7]alone",
+      "[E]I think of [A]you and [E]things you do",
+      "[A]Go round my [E]head the [C#m7]things you [B7]said",
+      "[C#m7]Like I [A]love [B7]only [E]you",
+    ]},
+    { name:"Chorus", lines:[
+      "[C#m7]In my mind [F#7]there's no sorrow",
+      "[E]Don't you know [G#m7]that it's so",
+      "[C#m7]There'll be no [F#7]sad tomorrow",
+      "[E]Don't you [G#m7]know that [C#m7]it's [G#m7]so",
+    ]},
+  ]},
+  "Twist and Shout": { key:"A", sections:[
+    { name:"Verse", lines:[
+      "[A7]Well shake it up [D]baby now [G]twist and [A]shout",
+      "[A7]C'mon c'mon [D]c'mon c'mon [G]baby [A]now",
+      "[A7]C'mon and [D]work it [G]on [A]out",
+    ]},
+    { name:"Chorus", lines:[
+      "[A7]Well work it [D]on out you [G]know you look [A]so good",
+      "[A7]You know you [D]got me [G]goin' [A]now",
+      "[A7]Just like I [D]knew you [G]would [A7]",
+    ]},
+    { name:"Bridge", lines:[
+      "[A7]You know you [D]twist it [G]little [A]girl",
+      "[A7]You know you [D]twist so [G]fine",
+      "[A7]C'mon and [D]twist a little [G]closer [A]now",
+      "[A7]And let me [D]know that [G]you're [A]mine",
+    ]},
+    { name:"Outro", lines:[
+      "[A7]Well shake it [D]shake it shake [G]it baby [A]now",
+      "[A]Ahh [G]ahh [G]ahh [G]ahh",
+    ]},
+  ]},
+};
+
 const INSTRUMENT_DATA = {
   "I Saw Her Standing There": { original:true, writer:"Lennon=McCartney", leadVocal:"Paul McCartney", john:{instruments:["Rickenbacker 325"]}, paul:{instruments:["Höfner 500/1 Bass"]}, george:{instruments:["Gretsch Duo Jet"]}, ringo:{instruments:["Premier 58/54 Mahogany"]} },
   "Misery": { original:true, writer:"Lennon=McCartney", leadVocal:"John Lennon, Paul McCartney", john:{instruments:["Gibson J-160E"]}, paul:{instruments:["Höfner 500/1 Bass"]}, george:{instruments:["Gibson J-160E"]}, ringo:{instruments:["Premier 58/54 Mahogany"]} },
@@ -430,7 +721,8 @@ const INSTRUMENT_DATA = {
 };
 
 async function getChords(song, album) {
-  if (CHORD_DATA[song]) return { data: CHORD_DATA[song], fromCache: false };
+  if (CHORD_LINES[song]) return { data: CHORD_LINES[song], fromCache: false };
+  if (CHORD_DATA[song])  return { data: { ...CHORD_DATA[song], _legacy: true }, fromCache: false };
   const k = cKey("chords", song, album);
   const cached = cGet(k);
   if (cached) return { data: cached, fromCache: true };
@@ -445,7 +737,7 @@ Include 2-4 sections (Intro/Verse/Chorus/Bridge/Outro as applicable). Use real l
     false // use web search
   );
 
-  const data = JSON.parse(raw);
+  const data = { ...JSON.parse(raw), _source: "web" };
   cSet(k, data);
   return { data, fromCache: false };
 }
@@ -529,6 +821,37 @@ Be historically accurate with real dates and details.`,
   const data = JSON.parse(raw);
   cSet(k, data);
   return { data, fromCache: false };
+}
+
+// "[CHORD]word" 形式をトークン配列に変換
+function parseChordLine(line) {
+  const tokens = [];
+  const re = /(\[[^\]]+\])|(\S+)/g;
+  let match, nextChord = null;
+  while ((match = re.exec(line)) !== null) {
+    if (match[1]) { nextChord = match[1].slice(1, -1); }
+    else { tokens.push({ word: match[2], chord: nextChord }); nextChord = null; }
+  }
+  if (nextChord) tokens.push({ word: "", chord: nextChord });
+  return tokens;
+}
+
+function ChordLine({ line }) {
+  const tokens = parseChordLine(line);
+  return (
+    <div style={{display:"flex",flexWrap:"wrap",gap:"0 6px",marginBottom:14,alignItems:"flex-end"}}>
+      {tokens.map((t, i) => (
+        <span key={i} style={{display:"inline-flex",flexDirection:"column",alignItems:"flex-start"}}>
+          <span style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:15,color:"var(--dark)",lineHeight:1.1,minHeight:17,letterSpacing:0.5,whiteSpace:"nowrap"}}>
+            {t.chord || ""}
+          </span>
+          <span style={{fontSize:12,color:"#6a5a4a",fontStyle:"italic",whiteSpace:"pre"}}>
+            {t.word}
+          </span>
+        </span>
+      ))}
+    </div>
+  );
 }
 
 // ── CSS ───────────────────────────────────────────────────────────────────────
@@ -736,6 +1059,53 @@ function TlEvent({ ev }) {
   );
 }
 
+function SinglesPage({ onOpenSong }) {
+  return (
+    <div className="pg">
+      <div className="pg-ttl">SINGLES</div>
+      <div style={{padding:"2px 18px 12px",fontSize:11,color:"var(--muted)",fontWeight:700,letterSpacing:1}}>UK公式シングル — Parlophone Records</div>
+      {SINGLES.map(s => (
+        <div key={s.num} style={{display:"flex",alignItems:"center",gap:12,padding:"13px 18px",borderBottom:"2px solid rgba(0,0,0,0.08)"}}>
+          <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:26,color:"#ccc",minWidth:34,lineHeight:1}}>
+            {String(s.num).padStart(2,"0")}
+          </div>
+          <div style={{flex:1}}>
+            <div style={{fontWeight:900,fontSize:14,color:"var(--dark)"}}>{s.aside}</div>
+            <div style={{fontSize:11,color:"var(--muted)",fontWeight:700,marginTop:2}}>B面: {s.bside}</div>
+            <div style={{display:"inline-block",marginTop:5,background:"rgba(0,0,0,0.06)",padding:"2px 9px",borderRadius:20,fontSize:10,fontWeight:800,letterSpacing:1,color:"var(--muted)"}}>
+              {fmtDate(s.date)}
+            </div>
+          </div>
+          <div style={{fontSize:22}}>💿</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function MorePage() {
+  const items = [
+    { icon:"📅", label:"HISTORY", sub:"年表・歴史的出来事" },
+    { icon:"💡", label:"TIPS",    sub:"演奏テクニック・豆知識" },
+    { icon:"🎤", label:"LIVE",    sub:"ライブ情報・セットリスト" },
+  ];
+  return (
+    <div className="pg">
+      <div className="pg-ttl">MORE</div>
+      {items.map(item => (
+        <div key={item.label} style={{display:"flex",alignItems:"center",gap:14,padding:"20px 18px",borderBottom:"2px solid rgba(0,0,0,0.08)",opacity:0.65}}>
+          <div style={{fontSize:34}}>{item.icon}</div>
+          <div style={{flex:1}}>
+            <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:22,letterSpacing:2,color:"var(--dark)"}}>{item.label}</div>
+            <div style={{fontSize:12,color:"var(--muted)",fontWeight:700,marginTop:2}}>{item.sub}</div>
+          </div>
+          <div style={{background:"var(--yellow)",color:"#806000",fontSize:10,fontWeight:900,letterSpacing:1,padding:"4px 10px",borderRadius:20}}>準備中</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function HistoryPage() {
   const [era, setEra] = useState(ERAS[1].id);
   const [filter, setFilter] = useState("all");
@@ -820,7 +1190,7 @@ export default function App() {
     setEc(null); setEt({}); setEi(null);
     setDetTab("chords"); setView("chords"); setTinstr("guitar");
     setPage("song");
-    if (!CHORD_DATA[s]) { setEc("準備中"); return; }
+    if (!CHORD_LINES[s] && !CHORD_DATA[s]) { setEc("準備中"); return; }
     setLc(true);
     try { const { data } = await getChords(s, a.title); setChords(data); }
     catch { setEc("コードの取得に失敗しました"); }
@@ -847,15 +1217,20 @@ export default function App() {
   function switchView(v)   { setView(v);   if (v === "tabs" && !tabs[tinstr] && !lt[tinstr]) doTab(tinstr); }
   function switchInstr(i)  { setTinstr(i); if (!tabs[i] && !lt[i]) doTab(i); }
   function goBack() {
-    if (page === "song") setPage(nav === "search" ? "search" : nav === "favs" ? "favs" : nav === "history" ? "history" : "songs");
-    else if (page === "songs") setPage("albums");
+    if (page === "song") {
+      if (nav === "search") setPage("search");
+      else if (nav === "favs") setPage("favs");
+      else if (nav === "singles") setPage("singles");
+      else setPage("songs");
+    } else if (page === "songs") setPage("albums");
   }
   function switchNav(p) {
     setNav(p);
-    if (p === "albums") setPage("albums");
-    else if (p === "search") setPage("search");
-    else if (p === "favs") setPage("favs");
-    else if (p === "history") setPage("history");
+    if (p === "albums")  setPage("albums");
+    else if (p === "singles") setPage("singles");
+    else if (p === "search")  setPage("search");
+    else if (p === "favs")    setPage("favs");
+    else if (p === "more")    setPage("more");
   }
 
   function SongRow({ s, a, idx, sub = false }) {
@@ -942,8 +1317,11 @@ export default function App() {
         }
       </div>}
 
-      {/* History */}
-      {page === "history" && <HistoryPage />}
+      {/* Singles */}
+      {page === "singles" && <SinglesPage />}
+
+      {/* More */}
+      {page === "more" && <MorePage />}
 
       {/* Song detail */}
       {page === "song" && album && song && <div className="pg">
@@ -987,15 +1365,17 @@ export default function App() {
             {lc && <div className="lw"><div className="vinyl" /><div className="lbl">Loading chords...</div><div className="lbl-sub">Web検索で精度を上げています</div></div>}
             {ec && <div className={ec==="準備中"?"prep":"err"}>{ec==="準備中"?"🎵 このアルバムは準備中です":"⚠️ "+ec}</div>}
             {chords && !lc && <>
-              <div className="wsrc">🔍 Web検索ベース</div>
+              {chords._source === "web" && <div className="wsrc">🔍 Web検索ベース</div>}
               {chords.sections?.map((s, si) => (
                 <div key={si} className="sec">
                   {s.name && <div className="slbl">{s.name}</div>}
                   {s.lines?.map((l, li) => (
-                    <div key={li} className="cl">
-                      <div className="cr">{l.chords?.filter(Boolean).map((c, ci) => <span key={ci} className="cp">{c}</span>)}</div>
-                      {l.lyric && <div className="lt">"{l.lyric}"</div>}
-                    </div>
+                    typeof l === "string"
+                      ? <ChordLine key={li} line={l} />
+                      : <div key={li} className="cl">
+                          <div className="cr">{l.chords?.filter(Boolean).map((c, ci) => <span key={ci} className="cp">{c}</span>)}</div>
+                          {l.lyric && <div className="lt">"{l.lyric}"</div>}
+                        </div>
                   ))}
                 </div>
               ))}
@@ -1043,13 +1423,14 @@ export default function App() {
       </div>}
 
       <div className="bnav">
-        <button className={`nb${nav === "albums" && page !== "song" ? " on" : ""}`} onClick={() => switchNav("albums")}><span className="ico">💿</span>ALBUMS</button>
+        <button className={`nb${nav === "albums" ? " on" : ""}`} onClick={() => switchNav("albums")}><span className="ico">💿</span>ALBUMS</button>
+        <button className={`nb${nav === "singles" ? " on" : ""}`} onClick={() => switchNav("singles")}><span className="ico">🎵</span>SINGLES</button>
         <button className={`nb${nav === "search" ? " on" : ""}`} onClick={() => switchNav("search")}><span className="ico">🔍</span>SEARCH</button>
         <button className={`nb${nav === "favs" ? " on" : ""}`} onClick={() => switchNav("favs")}>
           <span className="ico">{favs.length > 0 ? "❤️" : "🤍"}</span>FAVS
           {favs.length > 0 && <span style={{ fontSize: 9, color: "#e8433a", fontWeight: 900 }}>{favs.length}</span>}
         </button>
-        <button className={`nb${nav === "history" ? " on" : ""}`} onClick={() => switchNav("history")}><span className="ico">📅</span>HISTORY</button>
+        <button className={`nb${nav === "more" ? " on" : ""}`} onClick={() => switchNav("more")}><span className="ico">⋯</span>MORE</button>
       </div>
     </>
   );
