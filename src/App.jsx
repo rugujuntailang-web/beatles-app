@@ -71,7 +71,53 @@ async function callClaude(prompt, maxTokens = 1500, useWebSearch = false) {
     .trim();
   return text;
 }
-
+const CHORD_DATA = {
+  "I Saw Her Standing There": {
+    key: "E",
+    sections: [
+      { name: "Verse", lines: [
+        { chords: ["E7","","A7","E7"], lyric: "Well she was just seventeen and you know what I mean" },
+        { chords: ["","","","B7"], lyric: "And the way she looked was way beyond compare" },
+        { chords: ["E","E7","A7","C7"], lyric: "So how could I dance with another oh" },
+        { chords: ["E7","B7","E7",""], lyric: "When I saw her standing there" },
+      ]},
+      { name: "Bridge", lines: [
+        { chords: ["A7","","E7",""], lyric: "Well we danced through the night" },
+        { chords: ["A7","","E7",""], lyric: "And we held each other tight" },
+        { chords: ["","","","B7"], lyric: "And before too long I fell in love with her" },
+        { chords: ["E","E7","A7",""], lyric: "Now I'll never dance with another" },
+        { chords: ["C7","E7","B7","E7"], lyric: "Oh since I saw her standing there" },
+      ]},
+      { name: "Outro", lines: [
+        { chords: ["A7","","",""], lyric: "Well my heart went boom when I crossed that room" },
+        { chords: ["","B7","A7",""], lyric: "And I held her hand in mine" },
+        { chords: ["E7","B7","E7",""], lyric: "Since I saw her standing there" },
+      ]},
+    ]
+  },
+  "Misery": {
+    key: "C",
+    sections: [
+      { name: "Verse", lines: [
+        { chords: ["F","","G",""], lyric: "The world is treating me bad" },
+        { chords: ["C","Am","G",""], lyric: "Misery" },
+        { chords: ["C","","F",""], lyric: "I'm the kind of guy" },
+        { chords: ["C","","F",""], lyric: "Who never used to cry" },
+        { chords: ["F","","G",""], lyric: "The world is treating me bad" },
+        { chords: ["C","Am","",""], lyric: "Misery!" },
+      ]},
+      { name: "Bridge", lines: [
+        { chords: ["Am","","C",""], lyric: "I'll remember all the little things we've done" },
+        { chords: ["Am","","G",""], lyric: "Can't she see she'll always be the only one" },
+      ]},
+      { name: "Outro", lines: [
+        { chords: ["C","Am","",""], lyric: "Without her I will be in misery" },
+        { chords: ["C","Am","",""], lyric: "In misery (oh oh oh)" },
+        { chords: ["C","","",""], lyric: "Misery" },
+      ]},
+    ]
+  },
+};
 async function getChords(song, album) {
   const k = cKey("chords", song, album);
   const cached = cGet(k);
