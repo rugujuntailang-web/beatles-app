@@ -83,7 +83,7 @@ Return ONLY a JSON object (no markdown, no explanation):
 {"key":"G","sections":[{"name":"Verse","lines":[{"chords":["G","Em","C","D"],"lyric":"first few words of that line"}]}]}
 Include 2-4 sections (Intro/Verse/Chorus/Bridge/Outro as applicable). Use real lyric snippets. Be musically accurate.`,
     1500,
-    true // use web search
+    false // use web search
   );
 
   const data = JSON.parse(raw);
