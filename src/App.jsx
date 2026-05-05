@@ -406,6 +406,23 @@ const CHORD_DATA = {
   },
 };
 
+const INSTRUMENT_DATA = {
+  "I Saw Her Standing There": { original:true, writer:"Lennon=McCartney", leadVocal:"Paul McCartney", john:{instruments:["Rickenbacker 325"]}, paul:{instruments:["Höfner 500/1 Bass"]}, george:{instruments:["Gretsch Duo Jet"]}, ringo:{instruments:["Premier 58/54 Mahogany"]} },
+  "Misery": { original:true, writer:"Lennon=McCartney", leadVocal:"John Lennon, Paul McCartney", john:{instruments:["Gibson J-160E"]}, paul:{instruments:["Höfner 500/1 Bass"]}, george:{instruments:["Gibson J-160E"]}, ringo:{instruments:["Premier 58/54 Mahogany"]} },
+  "Anna (Go to Him)": { original:false, writer:"Arthur Alexander", leadVocal:"John Lennon", john:{instruments:["Gibson J-160E"]}, paul:{instruments:["Höfner 500/1 Bass"]}, george:{instruments:["Gibson J-160E"]}, ringo:{instruments:["Premier 58/54 Mahogany"]} },
+  "Chains": { original:false, writer:"Gerry Goffin, Carole King", leadVocal:"George Harrison", john:{instruments:["Gibson J-160E"]}, paul:{instruments:["Höfner 500/1 Bass"]}, george:{instruments:["Gibson J-160E"]}, ringo:{instruments:["Premier 58/54 Mahogany"]} },
+  "Boys": { original:false, writer:"Luther Dixon, Wes Farrell", leadVocal:"Ringo Starr", john:{instruments:["Gibson J-160E"]}, paul:{instruments:["Höfner 500/1 Bass"]}, george:{instruments:["Gretsch Duo Jet"]}, ringo:{instruments:["Premier 58/54 Mahogany"]} },
+  "Ask Me Why": { original:true, writer:"Lennon=McCartney", leadVocal:"John Lennon", john:{instruments:["Rickenbacker 325"]}, paul:{instruments:["Höfner 500/1 Bass"]}, george:{instruments:["Gibson J-160E"]}, ringo:{instruments:["Premier 58/54 Mahogany"]} },
+  "Please Please Me": { original:true, writer:"Lennon=McCartney", leadVocal:"John Lennon, Paul McCartney", john:{instruments:["Gibson J-160E"]}, paul:{instruments:["Höfner 500/1 Bass"]}, george:{instruments:["Gibson J-160E"]}, ringo:{instruments:["Premier 58/54 Mahogany"]} },
+  "Love Me Do": { original:true, writer:"Lennon=McCartney", leadVocal:"Paul McCartney, John Lennon", john:{instruments:["Gibson J-160E"]}, paul:{instruments:["Höfner 500/1 Bass"]}, george:{instruments:["Gibson J-160E"]}, ringo:{instruments:["Premier 58/54 Mahogany"]} },
+  "P.S. I Love You": { original:true, writer:"Lennon=McCartney", leadVocal:"Paul McCartney", john:{instruments:[]}, paul:{instruments:["Höfner 500/1 Bass"]}, george:{instruments:["Gibson J-160E"]}, ringo:{instruments:["Premier 58/54 Mahogany"]} },
+  "Baby It's You": { original:false, writer:"Mack David, Barney Williams, Burt Bacharach", leadVocal:"John Lennon", john:{instruments:["Gibson J-160E"]}, paul:{instruments:["Höfner 500/1 Bass"]}, george:{instruments:["Gibson J-160E"]}, ringo:{instruments:["Premier 58/54 Mahogany"]} },
+  "Do You Want to Know a Secret": { original:true, writer:"Lennon=McCartney", leadVocal:"George Harrison", john:{instruments:["Gibson J-160E"]}, paul:{instruments:["Höfner 500/1 Bass"]}, george:{instruments:["Gibson J-160E"]}, ringo:{instruments:["Premier 58/54 Mahogany"]} },
+  "A Taste of Honey": { original:false, writer:"Bobby Scott, Ric Marlow", leadVocal:"Paul McCartney", john:{instruments:["Gibson J-160E"]}, paul:{instruments:["Höfner 500/1 Bass"]}, george:{instruments:["Gibson J-160E"]}, ringo:{instruments:["Premier 58/54 Mahogany"]} },
+  "There's a Place": { original:true, writer:"Lennon=McCartney", leadVocal:"John Lennon, Paul McCartney", john:{instruments:["Gibson J-160E"]}, paul:{instruments:["Höfner 500/1 Bass"]}, george:{instruments:["Gibson J-160E"]}, ringo:{instruments:["Premier 58/54 Mahogany"]} },
+  "Twist and Shout": { original:false, writer:"Phil Medley, Bert Russell", leadVocal:"John Lennon", john:{instruments:["Rickenbacker 325"]}, paul:{instruments:["Höfner 500/1 Bass"]}, george:{instruments:["Gibson J-160E"]}, ringo:{instruments:["Premier 58/54 Mahogany"]} },
+};
+
 async function getChords(song, album) {
   if (CHORD_DATA[song]) return { data: CHORD_DATA[song], fromCache: false };
   const k = cKey("chords", song, album);
@@ -463,6 +480,7 @@ Include 2-4 sections. Use real notes from the actual recording. Newlines in tab 
 }
 
 async function getInstruments(song, album) {
+  if (INSTRUMENT_DATA[song]) return { data: INSTRUMENT_DATA[song], fromCache: false };
   const k = cKey("inst", song, album);
   const cached = cGet(k);
   if (cached) return { data: cached, fromCache: true };
@@ -947,6 +965,19 @@ setLc(false);
             </button>
           </div>
           {chords?.key && <div className="sdk">KEY OF {chords.key}</div>}
+{INSTRUMENT_DATA[song] && (
+  <div style={{marginTop:10,display:"flex",flexWrap:"wrap",gap:6}}>
+    <span style={{background:INSTRUMENT_DATA[song].original?"#1a5fa8":"#c0392b",color:"#fff",fontSize:10,fontWeight:800,letterSpacing:1,padding:"3px 10px",borderRadius:20}}>
+      {INSTRUMENT_DATA[song].original ? "ORIGINAL" : "COVER"}
+    </span>
+    <span style={{background:"#f5f0e8",border:"2px solid #ddd",fontSize:11,fontWeight:700,padding:"3px 10px",borderRadius:20,color:"var(--ink)"}}>
+      ✍️ {INSTRUMENT_DATA[song].writer}
+    </span>
+    <span style={{background:"#f5f0e8",border:"2px solid #ddd",fontSize:11,fontWeight:700,padding:"3px 10px",borderRadius:20,color:"var(--ink)"}}>
+      🎤 {INSTRUMENT_DATA[song].leadVocal}
+    </span>
+  </div>
+)}
         </div>
 
         <div className="tabs">
