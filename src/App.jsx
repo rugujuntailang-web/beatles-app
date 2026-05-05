@@ -622,7 +622,7 @@ body { background:var(--cream); color:var(--ink); font-family:'Nunito',sans-seri
 .cp { background:var(--dark); color:#fff; font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:1px; padding:4px 12px; border-radius:8px; min-width:42px; text-align:center; }
 .lt { font-size:13px; color:var(--muted); font-style:italic; line-height:1.5; }
 .err { background:#fff0ef; border:2px solid var(--red); color:var(--red); padding:12px 14px; border-radius:10px; font-size:13px; font-weight:700; margin-bottom:12px; }
-
+.prep{background:#fffbe6;border:2px solid #f5c518;color:#806000;padding:20px;border-radius:10px;font-size:14px;font-weight:800;text-align:center;margin:20px 0;}
 /* TAB */
 .tirow { display:flex; gap:6px; padding:12px 18px 4px; }
 .tib { padding:6px 14px; border:2px solid var(--dark); border-radius:20px; font-size:11px; font-weight:800; letter-spacing:1px; text-transform:uppercase; cursor:pointer; background:transparent; font-family:'Nunito',sans-serif; color:var(--ink); transition:all 0.12s; white-space:nowrap; }
@@ -829,14 +829,11 @@ export default function App() {
     setEc(null); setEt({}); setEi(null);
     setDetTab("chords"); setView("chords"); setTinstr("guitar");
     setPage("song");
+    if (!CHORD_DATA[s]) { setEc("準備中"); return; }
     setLc(true);
     try { const { data } = await getChords(s, a.title); setChords(data); }
-    catch {
-  await sleep(3000);
-  try { const { data } = await getChords(s, a.title); setChords(data); }
-  catch { setEc("コードの取得に失敗しました"); }
-}
-setLc(false);
+    catch { setEc("コードの取得に失敗しました"); }
+    setLc(false);
   }
 
   async function doTab(instr) {
@@ -993,7 +990,7 @@ setLc(false);
 
           {view === "chords" && <div className="csh">
             {lc && <div className="lw"><div className="vinyl" /><div className="lbl">Loading chords...</div><div className="lbl-sub">Web検索で精度を上げています</div></div>}
-            {ec && <div className="err">⚠️ {ec}</div>}
+            {ec && <div className={ec==="準備中"?"prep":"err"}>{ec==="準備中"?"🎵 このアルバムは準備中です":"⚠️ "+ec}</div>}
             {chords && !lc && <>
               <div className="wsrc">🔍 Web検索ベース</div>
               {chords.sections?.map((s, si) => (
