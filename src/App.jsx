@@ -47,7 +47,7 @@ const ERAS = [
 // ── Claude API with web_search for accuracy ───────────────────────────────────
 async function callClaude(prompt, maxTokens = 1500, useWebSearch = false) {
   const body = {
-    model: "claude-haiku-4-5-20251001",
+    model: "claude-sonnet-4-20250514",
     max_tokens: maxTokens,
     messages: [{ role: "user", content: prompt }],
   };
