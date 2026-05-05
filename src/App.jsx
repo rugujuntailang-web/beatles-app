@@ -736,13 +736,7 @@ function HistoryPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    setEvents(null); setError(null); setLoading(true);
-    getHistory(era)
-      .then(({ data }) => setEvents(data))
-      .catch(() => setError("取得に失敗しました"))
-      .finally(() => setLoading(false));
-  }, [era]);
+ useEffect(()=>{},[era]);
 
   const filtered = useMemo(() => {
     if (!events) return [];
@@ -752,7 +746,7 @@ function HistoryPage() {
   return (
     <div className="hpg">
       <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 34, letterSpacing: 2, padding: "18px 18px 4px", color: "var(--dark)" }}>HISTORY</div>
-      <div className="erascroll">
+      <div className="erascroll" style={{display:"none"}}>
         {ERAS.map(e => (
           <button key={e.id} className={`erabtn${era === e.id ? " on" : ""}`} onClick={() => setEra(e.id)}>
             <span className="erabtn-l">{e.label}</span>
@@ -760,22 +754,12 @@ function HistoryPage() {
           </button>
         ))}
       </div>
-      <div className="frow">
+      <div className="frow" style={{display:"none"}}>
         {[{ id: "all", l: "ALL" }, { id: "album", l: "💿" }, { id: "single", l: "🎵" }, { id: "live", l: "🎤" }].map(({ id, l }) => (
           <button key={id} className={`fbf${filter === id ? " on " + id : ""}`} onClick={() => setFilter(id)}>{l}</button>
         ))}
       </div>
-      {loading && <div className="lw"><div className="vinyl" /><div className="lbl">Loading history...</div><div className="lbl-sub">Web検索中...</div></div>}
-      {error && <div style={{ padding: "16px 18px" }}><div className="err">⚠️ {error}</div></div>}
-      {events && !loading && (
-        <div className="tline">
-          <div className="wsrc">🔍 Web検索で取得</div>
-          {filtered.length === 0
-            ? <div className="empty"><div className="empty-i">📭</div><div className="empty-t">イベントなし</div></div>
-            : filtered.map((ev, i) => <TlEvent key={i} ev={ev} />)
-          }
-        </div>
-      )}
+      <div className="prep" style={{margin:20}}>🎵 Historyページは準備中です</div>
     </div>
   );
 }
